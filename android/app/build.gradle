@@ -1,0 +1,39 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services" // Firebase plugin
+}
+
+android {
+    namespace = "com.example.cricket"
+    compileSdk = 34 // Use an explicit version instead of `flutter.compileSdkVersion`
+
+    defaultConfig {
+        applicationId = "com.example.cricket"
+        minSdk = 19
+        targetSdk = 34 // Use an explicit version instead of `flutter.targetSdkVersion`
+        versionCode = 1
+        versionName = "1.0.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug // ⚠️ Change to a proper release signing key if needed
+            minifyEnabled false
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
